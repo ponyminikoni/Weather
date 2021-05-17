@@ -13,6 +13,8 @@
 		B37BE58C2652F427009F6880 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B37BE58A2652F427009F6880 /* Main.storyboard */; };
 		B37BE58E2652F428009F6880 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B37BE58D2652F428009F6880 /* Assets.xcassets */; };
 		B37BE5912652F428009F6880 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B37BE58F2652F428009F6880 /* LaunchScreen.storyboard */; };
+		B37BE5992652FA0F009F6880 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BE5982652FA0F009F6880 /* NetworkManager.swift */; };
+		B37BE59B2652FA64009F6880 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BE59A2652FA64009F6880 /* WeatherResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		B37BE58D2652F428009F6880 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B37BE5902652F428009F6880 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B37BE5922652F428009F6880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B37BE5982652FA0F009F6880 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B37BE59A2652FA64009F6880 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,49 @@
 		B37BE5832652F427009F6880 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				B37BE59F26530118009F6880 /* ViewControllers */,
+				B37BE59C265300E6009F6880 /* Storyboards */,
+				B37BE59D265300FD009F6880 /* Models */,
+				B37BE59E2653010A009F6880 /* Services */,
+				B37BE58D2652F428009F6880 /* Assets.xcassets */,
 				B37BE5842652F427009F6880 /* AppDelegate.swift */,
 				B37BE5862652F427009F6880 /* SceneDelegate.swift */,
-				B37BE5882652F427009F6880 /* ViewController.swift */,
-				B37BE58A2652F427009F6880 /* Main.storyboard */,
-				B37BE58D2652F428009F6880 /* Assets.xcassets */,
-				B37BE58F2652F428009F6880 /* LaunchScreen.storyboard */,
 				B37BE5922652F428009F6880 /* Info.plist */,
 			);
 			path = Weather;
+			sourceTree = "<group>";
+		};
+		B37BE59C265300E6009F6880 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B37BE58A2652F427009F6880 /* Main.storyboard */,
+				B37BE58F2652F428009F6880 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B37BE59D265300FD009F6880 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B37BE59A2652FA64009F6880 /* WeatherResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B37BE59E2653010A009F6880 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B37BE5982652FA0F009F6880 /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B37BE59F26530118009F6880 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B37BE5882652F427009F6880 /* ViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +175,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B37BE5992652FA0F009F6880 /* NetworkManager.swift in Sources */,
+				B37BE59B2652FA64009F6880 /* WeatherResponse.swift in Sources */,
 				B37BE5892652F427009F6880 /* ViewController.swift in Sources */,
 				B37BE5852652F427009F6880 /* AppDelegate.swift in Sources */,
 				B37BE5872652F427009F6880 /* SceneDelegate.swift in Sources */,
@@ -296,7 +336,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ponyminikoni.Weather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -315,7 +355,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ponyminikoni.Weather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
