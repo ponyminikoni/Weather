@@ -8,14 +8,21 @@
 import Foundation
 
 struct WeatherResponse: Decodable {
-    let name: String
+    let weather: [Weather]
     let main: Main
     let wind: Wind
+    let name: String
 }
 struct Main: Decodable {
-    let temp: Float?
+    let temp: Float
+    let tempMin: Float
+    let tempMax: Float
 }
 
 struct Wind: Decodable {
-    let speed : Float?
+    let speed : Float
+}
+
+struct Weather: Decodable {
+    let main: String
 }

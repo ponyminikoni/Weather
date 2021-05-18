@@ -19,7 +19,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VGZ-II-WYg">
                                 <rect key="frame" x="16" y="144" width="382" height="76"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DDz-cx-qAt">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter city name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DDz-cx-qAt">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -28,28 +28,45 @@
                                         <rect key="frame" x="0.0" y="42" width="382" height="34"/>
                                         <color key="backgroundColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Show"/>
                                         <connections>
-                                            <action selector="getWeather" destination="BYZ-38-t0r" eventType="touchUpInside" id="09O-bB-XE0"/>
+                                            <action selector="showBottonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="09O-bB-XE0"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="w5X-Yb-8dV">
-                                <rect key="frame" x="193.5" y="369.5" width="27" height="157"/>
+                                <rect key="frame" x="164" y="329" width="86" height="238.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2h-0V-wWy">
-                                        <rect key="frame" x="0.0" y="0.0" width="27" height="60"/>
+                                        <rect key="frame" x="29.5" y="0.0" width="27" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPy-XP-Imm">
-                                        <rect key="frame" x="5.5" y="121" width="16.5" height="36"/>
+                                        <rect key="frame" x="35" y="121" width="16.5" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="MeS-vM-f0w">
+                                        <rect key="frame" x="0.0" y="218" width="86" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nob-Ns-PnJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="8" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZyU-iy-T34">
+                                                <rect key="frame" x="78" y="0.0" width="8" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -67,7 +84,9 @@
                         <outlet property="cityNameLabel" destination="b2h-0V-wWy" id="c2b-v0-guU"/>
                         <outlet property="cityNameTextFiled" destination="DDz-cx-qAt" id="5K1-aQ-2Gy"/>
                         <outlet property="searchButton" destination="mE2-H2-Ccq" id="CPG-S3-5qz"/>
-                        <outlet property="temperatureLabel" destination="zPy-XP-Imm" id="yEU-VO-yZj"/>
+                        <outlet property="tempCurrentLabel" destination="zPy-XP-Imm" id="yEU-VO-yZj"/>
+                        <outlet property="tempMaxLabel" destination="ZyU-iy-T34" id="nxk-0u-HMX"/>
+                        <outlet property="tempMinLabel" destination="Nob-Ns-PnJ" id="PYo-B7-0QD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
