@@ -24,9 +24,14 @@ class ViewController: UIViewController {
         getWeather(for: "Moscow")
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     
     @IBAction func showBottonPressed() {
         getWeather(for: cityNameTextFiled.text)
+        cityNameTextFiled.text = nil
     }
     
     private func getWeather(for city: String?) {
@@ -42,3 +47,16 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        cityNameTextFiled.resignFirstResponder()
+        
+        if let cityName = cityNameTextFiled.text {
+            getWeather(for: cityName)
+            cityNameTextFiled.text = nil
+        }
+        return true
+    }
+    
+}
