@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getWeather(for: "Moscow")
+        showWeather(for: "Moscow")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -30,19 +30,22 @@ class ViewController: UIViewController {
     
     
     @IBAction func showBottonPressed() {
-        getWeather(for: cityNameTextFiled.text)
+        showWeather(for: cityNameTextFiled.text ?? "")
         cityNameTextFiled.text = nil
     }
     
-    private func getWeather(for city: String?) {
-        NetworkManager.shared.getData(city: city ?? "") { weather in
-            self.cityNameLabel.text = weather.name
-            self.tempCurrentLabel.text = String(format: "%.0f", weather.main.temp) + "℃"
-            
-            self.tempMinLabel.text = "Min: " + String(format: "%.0f", weather.main.tempMin ) + "℃"
-            
-            self.tempMaxLabel.text = "Max " + String(format: "%.0f", weather.main.tempMax ) + "℃"
-            
+    private func setWeatherUI(weather: WeatherResponse) {
+        self.cityNameLabel.text = weather.name
+        self.tempCurrentLabel.text = String(format: "%.0f", weather.main.temp) + "℃"
+        
+        self.tempMinLabel.text = "Min: " + String(format: "%.0f", weather.main.tempMin ) + "℃"
+        
+        self.tempMaxLabel.text = "Max " + String(format: "%.0f", weather.main.tempMax ) + "℃"
+    }
+    
+    private func showWeather(for city: String) {
+        NetworkManager.shared.getData(city: city) { weather in
+            self.setWeatherUI(weather: weather)
         }
     }
 }
@@ -53,7 +56,7 @@ extension ViewController: UITextFieldDelegate {
         cityNameTextFiled.resignFirstResponder()
         
         if let cityName = cityNameTextFiled.text {
-            getWeather(for: cityName)
+            showWeather(for: cityName)
             cityNameTextFiled.text = nil
         }
         return true
