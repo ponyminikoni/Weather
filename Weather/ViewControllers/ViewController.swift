@@ -17,8 +17,6 @@ class ViewController: UIViewController {
     @IBOutlet var searchButton: UIButton!
     @IBOutlet var cityNameTextFiled: UITextField!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         cityNameTextFiled.text = "Moscow"
