@@ -13,7 +13,7 @@ class NetworkManager {
     
     private init() {}
     
-    func getData(city: String?, completion: @escaping (WeatherResponse) -> ()) {
+    func getData(city: String?, completion: @escaping (WeatherResponse?) -> ()) {
         
         let stringURL = "http://api.openweathermap.org/data/2.5/weather?q=\(city ?? "")&units=metric&appid=99778f189f239059899e125db87af0d0"
         
@@ -30,6 +30,9 @@ class NetworkManager {
                     completion(weatherResponse)
                 }
             } catch let error {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
                 print(error.localizedDescription)
             }
         }.resume()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WeatherInfoViewController: UIViewController {
     
     @IBOutlet var cityNameLabel: UILabel!
     @IBOutlet var tempCurrentLabel: UILabel!
@@ -27,28 +27,37 @@ class ViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    
-    @IBAction func showBottonPressed() {
+    @IBAction func searchBottonPressed() {
         showWeather()
     }
     
-    private func setWeatherUI(weather: WeatherResponse) {
+    private func showWeather() {
+        NetworkManager.shared.getData(city: cityNameTextFiled.text) { weatherResponse in
+            self.checkWeatherDataState(data: weatherResponse)
+        }
         self.cityNameTextFiled.text = nil
+    }
+    
+    private func checkWeatherDataState(data: WeatherResponse?) {
+        guard let data = data else { self.showAlert(); return }
+            self.setWeatherUI(weather: data)
+    }
+    
+    private func setWeatherUI(weather: WeatherResponse) {
         self.cityNameLabel.text = weather.name
         self.tempCurrentLabel.text = String(format: "%.0f", weather.main.temp) + "℃"
         self.tempMinLabel.text = "Min: " + String(format: "%.0f", weather.main.tempMin ) + "℃"
         self.tempMaxLabel.text = "Max " + String(format: "%.0f", weather.main.tempMax ) + "℃"
     }
     
-    
-    private func showWeather() {
-        NetworkManager.shared.getData(city: cityNameTextFiled.text) { weatherResponse in
-            self.setWeatherUI(weather: weatherResponse)
-        }
+    private func showAlert() {
+        let alert = UIAlertController(title: "City Not Found", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
     }
 }
 
-extension ViewController: UITextFieldDelegate {
+extension WeatherInfoViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         cityNameTextFiled.resignFirstResponder()
