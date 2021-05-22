@@ -13,6 +13,7 @@ class WeatherInfoViewController: UIViewController {
     @IBOutlet var tempCurrentLabel: UILabel!
     @IBOutlet var tempMinLabel: UILabel!
     @IBOutlet var tempMaxLabel: UILabel!
+    @IBOutlet var weatherDescription: UILabel!
     
     @IBOutlet var searchButton: UIButton!
     @IBOutlet var cityNameTextFiled: UITextField!
@@ -45,9 +46,10 @@ class WeatherInfoViewController: UIViewController {
     
     private func setWeatherUI(weather: WeatherResponse) {
         self.cityNameLabel.text = weather.name
-        self.tempCurrentLabel.text = String(format: "%.0f", weather.main.temp) + "℃"
-        self.tempMinLabel.text = "Min: " + String(format: "%.0f", weather.main.tempMin ) + "℃"
-        self.tempMaxLabel.text = "Max " + String(format: "%.0f", weather.main.tempMax ) + "℃"
+        self.weatherDescription.text = weather.weather.first?.main
+        self.tempCurrentLabel.text = String(format: "%.0f", weather.main.temp) + "°"
+        self.tempMinLabel.text = String(format: "L: %.0f", weather.main.tempMin) + "°"
+        self.tempMaxLabel.text = String(format: "H: %.0f", weather.main.tempMax) + "°"
     }
     
     private func showAlert() {
@@ -64,5 +66,4 @@ extension WeatherInfoViewController: UITextFieldDelegate {
         showWeather()
         return true
     }
-    
 }
