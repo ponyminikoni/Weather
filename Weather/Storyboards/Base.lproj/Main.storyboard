@@ -45,29 +45,29 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="b2h-0V-wWy">
+                                <rect key="frame" x="16" y="186" width="288" height="57"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="w5X-Yb-8dV">
-                                <rect key="frame" x="107" y="176" width="106" height="245.5"/>
+                                <rect key="frame" x="107" y="283" width="106" height="153"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2h-0V-wWy">
-                                        <rect key="frame" x="39" y="0.0" width="28" height="52.5"/>
-                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="46"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPy-XP-Imm">
-                                        <rect key="frame" x="44" y="92.5" width="18.5" height="34"/>
+                                        <rect key="frame" x="44" y="0.0" width="18.5" height="34"/>
                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7n-UC-Puy">
-                                        <rect key="frame" x="48" y="166.5" width="10.5" height="19.5"/>
+                                        <rect key="frame" x="48" y="74" width="10.5" height="19.5"/>
                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="85" translatesAutoresizingMaskIntoConstraints="NO" id="MeS-vM-f0w">
-                                        <rect key="frame" x="0.0" y="226" width="106" height="19.5"/>
+                                        <rect key="frame" x="0.0" y="133.5" width="106" height="19.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nob-Ns-PnJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="10.5" height="19.5"/>
@@ -90,7 +90,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VGZ-II-WYg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="26k-bk-r7R"/>
-                            <constraint firstItem="w5X-Yb-8dV" firstAttribute="top" secondItem="VGZ-II-WYg" secondAttribute="bottom" constant="50" id="KLq-We-Np9"/>
+                            <constraint firstItem="b2h-0V-wWy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="BSQ-0J-jbA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b2h-0V-wWy" secondAttribute="trailing" constant="16" id="LXw-wW-f2e"/>
+                            <constraint firstItem="b2h-0V-wWy" firstAttribute="top" secondItem="VGZ-II-WYg" secondAttribute="bottom" constant="60" id="blj-aj-rdm"/>
+                            <constraint firstItem="w5X-Yb-8dV" firstAttribute="top" secondItem="b2h-0V-wWy" secondAttribute="bottom" constant="40" id="eHN-E3-bzN"/>
                             <constraint firstItem="w5X-Yb-8dV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hOx-BL-3oV"/>
                             <constraint firstItem="VGZ-II-WYg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="nye-IQ-6G6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VGZ-II-WYg" secondAttribute="trailing" constant="16" id="oqu-8K-s1T"/>

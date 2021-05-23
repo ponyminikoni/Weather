@@ -20,8 +20,8 @@ class WeatherInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cityNameTextFiled.text = "Moscow"
-        showWeather()
+        cityNameTextFiled.text = "San Francisco"
+        showWeatherInfo()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -29,23 +29,28 @@ class WeatherInfoViewController: UIViewController {
     }
     
     @IBAction func searchBottonPressed() {
-        showWeather()
-        view.endEditing(true)
+        showWeatherInfo()
     }
     
-    private func showWeather() {
+    private func showWeatherInfo() {
+        characterReplacement(for: &cityNameTextFiled)
         NetworkManager.shared.getData(city: cityNameTextFiled.text) { weatherResponse in
             self.checkWeatherDataState(data: weatherResponse)
         }
         self.cityNameTextFiled.text = nil
     }
     
-    private func checkWeatherDataState(data: WeatherResponse?) {
-        guard let data = data else { self.showAlert(); return }
-            self.setWeatherUI(weather: data)
+    private func characterReplacement(for textFiled: inout UITextField) {
+        textFiled.text = textFiled.text?.replacingOccurrences(of: " ", with: "+")
     }
     
-    private func setWeatherUI(weather: WeatherResponse) {
+    private func checkWeatherDataState(data: WeatherResponse?) {
+        if let weather = data { self.setWeatherInfo(weather: weather) }
+        else { self.showAlert() }
+    }
+    
+    private func setWeatherInfo(weather: WeatherResponse) {
+        view.endEditing(true)
         self.cityNameLabel.text = weather.name
         self.weatherDescription.text = weather.weather.first?.main
         self.tempCurrentLabel.text = String(format: "%.0f°", weather.main.temp)
@@ -64,7 +69,7 @@ extension WeatherInfoViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         cityNameTextFiled.resignFirstResponder()
-        showWeather()
+        showWeatherInfo()
         return true
     }
 }
