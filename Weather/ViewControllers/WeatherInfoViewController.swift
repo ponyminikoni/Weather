@@ -25,11 +25,12 @@ class WeatherInfoViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     @IBAction func searchBottonPressed() {
         showWeather()
+        view.endEditing(true)
     }
     
     private func showWeather() {
@@ -47,9 +48,9 @@ class WeatherInfoViewController: UIViewController {
     private func setWeatherUI(weather: WeatherResponse) {
         self.cityNameLabel.text = weather.name
         self.weatherDescription.text = weather.weather.first?.main
-        self.tempCurrentLabel.text = String(format: "%.0f", weather.main.temp) + "°"
-        self.tempMinLabel.text = String(format: "L: %.0f", weather.main.tempMin) + "°"
-        self.tempMaxLabel.text = String(format: "H: %.0f", weather.main.tempMax) + "°"
+        self.tempCurrentLabel.text = String(format: "%.0f°", weather.main.temp)
+        self.tempMinLabel.text = String(format: "L: %.0f°", weather.main.tempMin)
+        self.tempMaxLabel.text = String(format: "H: %.0f°", weather.main.tempMax)
     }
     
     private func showAlert() {
