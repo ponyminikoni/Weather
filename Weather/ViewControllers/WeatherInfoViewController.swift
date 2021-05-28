@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SearchTableViewControllerDelegate {
+    func setValue(for searchCity: String)
+}
+
 class WeatherInfoViewController: UIViewController {
     
     @IBOutlet var cityNameLabel: UILabel!
@@ -15,42 +19,34 @@ class WeatherInfoViewController: UIViewController {
     @IBOutlet var tempMaxLabel: UILabel!
     @IBOutlet var weatherDescription: UILabel!
     
-    @IBOutlet var searchButton: UIButton!
-    @IBOutlet var cityNameTextFiled: UITextField!
+    private var searchCity = "" {
+        didSet {
+            showWeather()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cityNameTextFiled.text = "San Francisco"
-        showWeatherInfo()
+        definesPresentationContext = true
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let searchTableVC = segue.destination as? SearchTableViewController else { return }
+        searchTableVC.delegate = self
     }
     
-    @IBAction func searchBottonPressed() {
-        showWeatherInfo()
-    }
-    
-    private func showWeatherInfo() {
-        characterReplacement(for: &cityNameTextFiled)
-        NetworkManager.shared.getData(city: cityNameTextFiled.text) { weatherResponse in
-            self.checkWeatherDataState(data: weatherResponse)
+    private func showWeather() {
+        NetworkManager.shared.fetchWeather(city: searchCity) { weather in
+            self.checkWeatherDataState(data: weather)
         }
-        self.cityNameTextFiled.text = nil
-    }
-    
-    private func characterReplacement(for textFiled: inout UITextField) {
-        textFiled.text = textFiled.text?.replacingOccurrences(of: " ", with: "+")
     }
     
     private func checkWeatherDataState(data: WeatherResponse?) {
-        if let weather = data { self.setWeatherInfo(weather: weather) }
-        else { self.showAlert() }
+        guard let weather = data else { self.showAlert(); return }
+        setWeatherInfo(weather: weather)
     }
     
     private func setWeatherInfo(weather: WeatherResponse) {
-        view.endEditing(true)
         self.cityNameLabel.text = weather.name
         self.weatherDescription.text = weather.weather.first?.main
         self.tempCurrentLabel.text = String(format: "%.0f°", weather.main.temp)
@@ -59,17 +55,16 @@ class WeatherInfoViewController: UIViewController {
     }
     
     private func showAlert() {
-        let alert = UIAlertController(title: "City Not Found", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Weather Info Not Found", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true)
     }
 }
 
-extension WeatherInfoViewController: UITextFieldDelegate {
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        cityNameTextFiled.resignFirstResponder()
-        showWeatherInfo()
-        return true
+extension WeatherInfoViewController: SearchTableViewControllerDelegate {
+    func setValue(for searchCity: String) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.searchCity = searchCity
+        }
     }
 }

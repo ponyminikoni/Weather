@@ -14,6 +14,10 @@
 		B37BE5912652F428009F6880 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B37BE58F2652F428009F6880 /* LaunchScreen.storyboard */; };
 		B37BE5992652FA0F009F6880 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BE5982652FA0F009F6880 /* NetworkManager.swift */; };
 		B37BE59B2652FA64009F6880 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BE59A2652FA64009F6880 /* WeatherResponse.swift */; };
+		B3BD9FB426601E18001B66A6 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD9FB326601E18001B66A6 /* SearchTableViewController.swift */; };
+		B3BD9FB6266020B3001B66A6 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD9FB5266020B3001B66A6 /* City.swift */; };
+		B3D027F526613E1500D6C9A3 /* Cities.json in Resources */ = {isa = PBXBuildFile; fileRef = B3D027F426613E1500D6C9A3 /* Cities.json */; };
+		B3D027F726613E7200D6C9A3 /* CitiesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D027F626613E7200D6C9A3 /* CitiesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		B37BE5922652F428009F6880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B37BE5982652FA0F009F6880 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B37BE59A2652FA64009F6880 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
+		B3BD9FB326601E18001B66A6 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		B3BD9FB5266020B3001B66A6 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		B3D027F426613E1500D6C9A3 /* Cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cities.json; sourceTree = "<group>"; };
+		B3D027F626613E7200D6C9A3 /* CitiesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +50,7 @@
 		B30C9A402658F49E00246A96 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				B3D027F426613E1500D6C9A3 /* Cities.json */,
 				B37BE58D2652F428009F6880 /* Assets.xcassets */,
 			);
 			path = Source;
@@ -98,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				B37BE59A2652FA64009F6880 /* WeatherResponse.swift */,
+				B3BD9FB5266020B3001B66A6 /* City.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -106,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				B37BE5982652FA0F009F6880 /* NetworkManager.swift */,
+				B3D027F626613E7200D6C9A3 /* CitiesManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -114,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				B37BE5882652F427009F6880 /* WeatherInfoViewController.swift */,
+				B3BD9FB326601E18001B66A6 /* SearchTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -175,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3D027F526613E1500D6C9A3 /* Cities.json in Resources */,
 				B37BE5912652F428009F6880 /* LaunchScreen.storyboard in Resources */,
 				B37BE58E2652F428009F6880 /* Assets.xcassets in Resources */,
 				B37BE58C2652F427009F6880 /* Main.storyboard in Resources */,
@@ -189,7 +202,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B37BE5992652FA0F009F6880 /* NetworkManager.swift in Sources */,
+				B3D027F726613E7200D6C9A3 /* CitiesManager.swift in Sources */,
 				B37BE59B2652FA64009F6880 /* WeatherResponse.swift in Sources */,
+				B3BD9FB6266020B3001B66A6 /* City.swift in Sources */,
+				B3BD9FB426601E18001B66A6 /* SearchTableViewController.swift in Sources */,
 				B37BE5892652F427009F6880 /* WeatherInfoViewController.swift in Sources */,
 				B37BE5852652F427009F6880 /* AppDelegate.swift in Sources */,
 			);

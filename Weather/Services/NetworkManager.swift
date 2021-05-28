@@ -13,11 +13,11 @@ class NetworkManager {
     
     private init() {}
     
-    func getData(city: String?, completion: @escaping (WeatherResponse?) -> ()) {
+    func fetchWeather(city: String, completion: @escaping (WeatherResponse?) -> ()) {
         
-        let stringURL = "http://api.openweathermap.org/data/2.5/weather?q=\(city ?? "")&units=metric&appid=99778f189f239059899e125db87af0d0"
+        let stringURL = "http://api.openweathermap.org/data/2.5/weather?q=\(city)&units=metric&appid=99778f189f239059899e125db87af0d0"
         
-        guard let url = URL(string: stringURL) else { return }
+        guard let url = URL(string: stringURL) else { completion(nil); return }
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error { print(error); return }
             guard let data = data else { return }
