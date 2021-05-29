@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B31302C82662CC9000548A29 /* CityInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31302C72662CC9000548A29 /* CityInfoTableViewCell.swift */; };
 		B37BE5852652F427009F6880 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BE5842652F427009F6880 /* AppDelegate.swift */; };
 		B37BE5892652F427009F6880 /* WeatherInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BE5882652F427009F6880 /* WeatherInfoViewController.swift */; };
 		B37BE58C2652F427009F6880 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B37BE58A2652F427009F6880 /* Main.storyboard */; };
@@ -14,13 +15,14 @@
 		B37BE5912652F428009F6880 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B37BE58F2652F428009F6880 /* LaunchScreen.storyboard */; };
 		B37BE5992652FA0F009F6880 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BE5982652FA0F009F6880 /* NetworkManager.swift */; };
 		B37BE59B2652FA64009F6880 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BE59A2652FA64009F6880 /* WeatherResponse.swift */; };
-		B3BD9FB426601E18001B66A6 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD9FB326601E18001B66A6 /* SearchTableViewController.swift */; };
+		B3BD9FB426601E18001B66A6 /* CitySearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD9FB326601E18001B66A6 /* CitySearchTableViewController.swift */; };
 		B3BD9FB6266020B3001B66A6 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD9FB5266020B3001B66A6 /* City.swift */; };
 		B3D027F526613E1500D6C9A3 /* Cities.json in Resources */ = {isa = PBXBuildFile; fileRef = B3D027F426613E1500D6C9A3 /* Cities.json */; };
-		B3D027F726613E7200D6C9A3 /* CitiesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D027F626613E7200D6C9A3 /* CitiesManager.swift */; };
+		B3D027F726613E7200D6C9A3 /* CitiesListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D027F626613E7200D6C9A3 /* CitiesListManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B31302C72662CC9000548A29 /* CityInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityInfoTableViewCell.swift; sourceTree = "<group>"; };
 		B37BE5812652F427009F6880 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B37BE5842652F427009F6880 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B37BE5882652F427009F6880 /* WeatherInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoViewController.swift; sourceTree = "<group>"; };
@@ -30,10 +32,10 @@
 		B37BE5922652F428009F6880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B37BE5982652FA0F009F6880 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B37BE59A2652FA64009F6880 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
-		B3BD9FB326601E18001B66A6 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		B3BD9FB326601E18001B66A6 /* CitySearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchTableViewController.swift; sourceTree = "<group>"; };
 		B3BD9FB5266020B3001B66A6 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		B3D027F426613E1500D6C9A3 /* Cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cities.json; sourceTree = "<group>"; };
-		B3D027F626613E7200D6C9A3 /* CitiesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesManager.swift; sourceTree = "<group>"; };
+		B3D027F626613E7200D6C9A3 /* CitiesListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesListManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				B37BE5982652FA0F009F6880 /* NetworkManager.swift */,
-				B3D027F626613E7200D6C9A3 /* CitiesManager.swift */,
+				B3D027F626613E7200D6C9A3 /* CitiesListManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -125,7 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				B37BE5882652F427009F6880 /* WeatherInfoViewController.swift */,
-				B3BD9FB326601E18001B66A6 /* SearchTableViewController.swift */,
+				B3BD9FB326601E18001B66A6 /* CitySearchTableViewController.swift */,
+				B31302C72662CC9000548A29 /* CityInfoTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -202,11 +205,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B37BE5992652FA0F009F6880 /* NetworkManager.swift in Sources */,
-				B3D027F726613E7200D6C9A3 /* CitiesManager.swift in Sources */,
+				B3D027F726613E7200D6C9A3 /* CitiesListManager.swift in Sources */,
 				B37BE59B2652FA64009F6880 /* WeatherResponse.swift in Sources */,
 				B3BD9FB6266020B3001B66A6 /* City.swift in Sources */,
-				B3BD9FB426601E18001B66A6 /* SearchTableViewController.swift in Sources */,
+				B3BD9FB426601E18001B66A6 /* CitySearchTableViewController.swift in Sources */,
 				B37BE5892652F427009F6880 /* WeatherInfoViewController.swift in Sources */,
+				B31302C82662CC9000548A29 /* CityInfoTableViewCell.swift in Sources */,
 				B37BE5852652F427009F6880 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

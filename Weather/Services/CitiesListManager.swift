@@ -7,18 +7,17 @@
 
 import Foundation
 
-class CitiesManager {
+class CitiesListManager {
     
-    static let shared = CitiesManager() 
+    static let shared = CitiesListManager() 
     
     private init() {}
     
     func fetchCitiesList() -> [City] {
-        let decoder = JSONDecoder()
         guard
             let url = Bundle.main.url(forResource: "Cities", withExtension: "json"),
             let data = try? Data(contentsOf: url),
-            let cities = try? decoder.decode([City].self, from: data)
+            let cities = try? JSONDecoder().decode([City].self, from: data)
         else { return [] }
         return cities
     }

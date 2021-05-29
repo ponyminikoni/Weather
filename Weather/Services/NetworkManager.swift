@@ -13,9 +13,8 @@ class NetworkManager {
     
     private init() {}
     
-    func fetchWeather(city: String, completion: @escaping (WeatherResponse?) -> ()) {
-        
-        let stringURL = "http://api.openweathermap.org/data/2.5/weather?q=\(city)&units=metric&appid=99778f189f239059899e125db87af0d0"
+    func fetchWeather(cityID: Int, completion: @escaping (WeatherResponse?) -> ()) {
+        let stringURL = "http://api.openweathermap.org/data/2.5/weather?id=\(cityID)&appid=99778f189f239059899e125db87af0d0&units=metric"
         
         guard let url = URL(string: stringURL) else { completion(nil); return }
         URLSession.shared.dataTask(with: url) { (data, _, error) in

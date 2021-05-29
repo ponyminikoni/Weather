@@ -6,37 +6,67 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol SearchTableViewControllerDelegate {
-    func setValue(for searchCity: String)
+    func setValue(for cityID: Int)
 }
 
-class WeatherInfoViewController: UIViewController {
+class WeatherInfoViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet var cityNameLabel: UILabel!
     @IBOutlet var tempCurrentLabel: UILabel!
     @IBOutlet var tempMinLabel: UILabel!
     @IBOutlet var tempMaxLabel: UILabel!
-    @IBOutlet var weatherDescription: UILabel!
+    @IBOutlet var weatherDescriptionLabel: UILabel!
     
-    private var searchCity = "" {
+    private var cityID: Int! {
         didSet {
             showWeather()
         }
     }
     
+//    let locationManager = CLLocationManager()
+//    var currentLocation: CLLocation?
+//
+//    func setupLocation() {
+//        locationManager.delegate = self
+//        locationManager.requestWhenInUseAuthorization()
+//        locationManager.startUpdatingLocation()
+//    }
+//
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if !locations.isEmpty, currentLocation == nil {
+//            currentLocation = locations.first
+//            locationManager.stopUpdatingLocation()
+//            requestWeatherForLocation()
+//        }
+//    }
+//
+//    func requestWeatherForLocation() {
+//        guard let currentLocation = currentLocation else { return }
+//        let long = currentLocation.coordinate.longitude
+//        let lat = currentLocation.coordinate.latitude
+//
+//        print(long, lat)
+//
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        definesPresentationContext = true
     }
     
+//    override func viewDidAppear(_ animated: Bool) {
+//        setupLocation()
+//    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let searchTableVC = segue.destination as? SearchTableViewController else { return }
+        guard let searchTableVC = segue.destination as? CitySearchTableViewController else { return }
         searchTableVC.delegate = self
     }
     
     private func showWeather() {
-        NetworkManager.shared.fetchWeather(city: searchCity) { weather in
+        NetworkManager.shared.fetchWeather(cityID: cityID) { weather in
             self.checkWeatherDataState(data: weather)
         }
     }
@@ -48,7 +78,7 @@ class WeatherInfoViewController: UIViewController {
     
     private func setWeatherInfo(weather: WeatherResponse) {
         self.cityNameLabel.text = weather.name
-        self.weatherDescription.text = weather.weather.first?.main
+        self.weatherDescriptionLabel.text = weather.weather.first?.main
         self.tempCurrentLabel.text = String(format: "%.0f°", weather.main.temp)
         self.tempMinLabel.text = String(format: "L: %.0f°", weather.main.tempMin)
         self.tempMaxLabel.text = String(format: "H: %.0f°", weather.main.tempMax)
@@ -62,9 +92,7 @@ class WeatherInfoViewController: UIViewController {
 }
 
 extension WeatherInfoViewController: SearchTableViewControllerDelegate {
-    func setValue(for searchCity: String) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            self.searchCity = searchCity
-        }
+    func setValue(for cityID: Int) {
+        self.cityID = cityID
     }
 }
