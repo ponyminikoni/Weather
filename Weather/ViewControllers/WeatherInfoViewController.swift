@@ -20,7 +20,7 @@ class WeatherInfoViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var tempMaxLabel: UILabel!
     @IBOutlet var weatherDescriptionLabel: UILabel!
     
-    private var cityID: Int! {
+    private var cityID = 524901 {
         didSet {
             showWeather()
         }
@@ -54,6 +54,7 @@ class WeatherInfoViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showWeather()
     }
     
 //    override func viewDidAppear(_ animated: Bool) {
@@ -61,8 +62,8 @@ class WeatherInfoViewController: UIViewController, CLLocationManagerDelegate {
 //    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let searchTableVC = segue.destination as? CitySearchTableViewController else { return }
-        searchTableVC.delegate = self
+        guard let citySearchTableVC = segue.destination as? CitySearchTableViewController else { return }
+        citySearchTableVC.delegate = self
     }
     
     private func showWeather() {

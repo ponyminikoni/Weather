@@ -67,6 +67,14 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		B35451F42663E292001A717F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B31302C72662CC9000548A29 /* CityInfoTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B37BE5782652F427009F6880 = {
 			isa = PBXGroup;
 			children = (
@@ -87,8 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				B37BE59F26530118009F6880 /* ViewControllers */,
-				B37BE59E2653010A009F6880 /* Services */,
+				B35451F42663E292001A717F /* View */,
 				B37BE59D265300FD009F6880 /* Models */,
+				B37BE59E2653010A009F6880 /* Services */,
 				B37BE59C265300E6009F6880 /* Storyboards */,
 				B30C9A402658F49E00246A96 /* Source */,
 				B30C9A412658F4AB00246A96 /* SupportingFiles */,
@@ -128,7 +137,6 @@
 			children = (
 				B37BE5882652F427009F6880 /* WeatherInfoViewController.swift */,
 				B3BD9FB326601E18001B66A6 /* CitySearchTableViewController.swift */,
-				B31302C72662CC9000548A29 /* CityInfoTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

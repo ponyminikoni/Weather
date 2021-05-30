@@ -42,7 +42,7 @@ class CitySearchTableViewController: UITableViewController {
         let selectedCell = tableView.cellForRow(at: indexPath) as! CityInfoTableViewCell
         guard let cityID = selectedCell.cityID else { return }
         delegate.setValue(for: cityID)
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
