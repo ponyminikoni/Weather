@@ -11,5 +11,5 @@ class CityInfoTableViewCell: UITableViewCell {
     
     @IBOutlet var cityNameLabel: UILabel!
     @IBOutlet var countryNameLabel: UILabel!
-    var cityID: Int!
+    var lat, lon: Double!
 }

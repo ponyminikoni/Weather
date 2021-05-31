@@ -7,9 +7,10 @@
 
 import UIKit
 import CoreLocation
+import Lottie
 
 protocol SearchTableViewControllerDelegate {
-    func setValue(for cityID: Int)
+    func setValue(lat: Double, lon: Double, cityName: String)
 }
 
 class WeatherInfoViewController: UIViewController, CLLocationManagerDelegate {
@@ -20,46 +21,52 @@ class WeatherInfoViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var tempMaxLabel: UILabel!
     @IBOutlet var weatherDescriptionLabel: UILabel!
     
-    private var cityID = 524901 {
+    @IBOutlet var animationView: AnimationView!
+    
+    private var cityName = "San Francisco"
+    private var lat = 37.774929
+    private var lon = -122.419418 {
         didSet {
             showWeather()
         }
     }
     
-//    let locationManager = CLLocationManager()
-//    var currentLocation: CLLocation?
-//
-//    func setupLocation() {
-//        locationManager.delegate = self
-//        locationManager.requestWhenInUseAuthorization()
-//        locationManager.startUpdatingLocation()
-//    }
-//
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        if !locations.isEmpty, currentLocation == nil {
-//            currentLocation = locations.first
-//            locationManager.stopUpdatingLocation()
-//            requestWeatherForLocation()
-//        }
-//    }
-//
-//    func requestWeatherForLocation() {
-//        guard let currentLocation = currentLocation else { return }
-//        let long = currentLocation.coordinate.longitude
-//        let lat = currentLocation.coordinate.latitude
-//
-//        print(long, lat)
-//
-//    }
+    //    let locationManager = CLLocationManager()
+    //    var currentLocation: CLLocation?
+    //
+    //    func setupLocation() {
+    //        locationManager.delegate = self
+    //        locationManager.requestWhenInUseAuthorization()
+    //        locationManager.startUpdatingLocation()
+    //    }
+    //
+    //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    //        if !locations.isEmpty, currentLocation == nil {
+    //            currentLocation = locations.first
+    //            locationManager.stopUpdatingLocation()
+    //            requestWeatherForLocation()
+    //        }
+    //    }
+    //
+    //    func requestWeatherForLocation() {
+    //        guard let currentLocation = currentLocation else { return }
+    //        let long = currentLocation.coordinate.longitude
+    //        let lat = currentLocation.coordinate.latitude
+    //
+    //        print(long, lat)
+    //
+    //    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showWeather()
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        setupLocation()
-//    }
+    private func setpuAnimation(name: String) {
+        animationView.animation = Animation.named(name)
+        animationView.loopMode = .loop
+        animationView.play()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let citySearchTableVC = segue.destination as? CitySearchTableViewController else { return }
@@ -67,7 +74,7 @@ class WeatherInfoViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     private func showWeather() {
-        NetworkManager.shared.fetchWeather(cityID: cityID) { weather in
+        NetworkManager.shared.fetchWeather(lat: lat, lon: lon) { weather in
             self.checkWeatherDataState(data: weather)
         }
     }
@@ -78,11 +85,17 @@ class WeatherInfoViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     private func setWeatherInfo(weather: WeatherResponse) {
-        self.cityNameLabel.text = weather.name
-        self.weatherDescriptionLabel.text = weather.weather.first?.main
-        self.tempCurrentLabel.text = String(format: "%.0f°", weather.main.temp)
-        self.tempMinLabel.text = String(format: "L: %.0f°", weather.main.tempMin)
-        self.tempMaxLabel.text = String(format: "H: %.0f°", weather.main.tempMax)
+        var timezone = weather.timezone; replacingCharacters(text: &timezone)
+        setpuAnimation(name: weather.current.weather.first?.icon ?? "")
+        self.cityNameLabel.text = cityName + ", " + timezone
+        self.weatherDescriptionLabel.text = weather.current.weather.first?.main
+        self.tempCurrentLabel.text = String(format: "%.0f", weather.current.temp)
+    }
+    
+    private func replacingCharacters(text: inout String) {
+        let index = text.firstIndex(of: "/") ?? text.endIndex
+        let beginning = text[..<index]
+        text = String(beginning)
     }
     
     private func showAlert() {
@@ -93,7 +106,9 @@ class WeatherInfoViewController: UIViewController, CLLocationManagerDelegate {
 }
 
 extension WeatherInfoViewController: SearchTableViewControllerDelegate {
-    func setValue(for cityID: Int) {
-        self.cityID = cityID
+    func setValue(lat: Double, lon: Double, cityName: String) {
+        self.cityName = cityName
+        self.lat = lat
+        self.lon = lon
     }
 }

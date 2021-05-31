@@ -8,7 +8,10 @@
 import Foundation
 
 struct City: Decodable {
-    let id: Int
-    let name: String
-    let country: String
+    let coord: Coordinate
+    let country, name: String
+}
+
+struct Coordinate: Decodable {
+    let lat, lon: Double
 }

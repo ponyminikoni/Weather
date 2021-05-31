@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,13 +15,35 @@
 		B37BE5912652F428009F6880 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B37BE58F2652F428009F6880 /* LaunchScreen.storyboard */; };
 		B37BE5992652FA0F009F6880 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BE5982652FA0F009F6880 /* NetworkManager.swift */; };
 		B37BE59B2652FA64009F6880 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BE59A2652FA64009F6880 /* WeatherResponse.swift */; };
+		B3AC954C26650842007770E0 /* Cities.json in Resources */ = {isa = PBXBuildFile; fileRef = B3AC954B26650842007770E0 /* Cities.json */; };
+		B3BC554D2665348C00531B2A /* 11n.json in Resources */ = {isa = PBXBuildFile; fileRef = B3BC553B2665348C00531B2A /* 11n.json */; };
+		B3BC554E2665348C00531B2A /* 10d.json in Resources */ = {isa = PBXBuildFile; fileRef = B3BC553C2665348C00531B2A /* 10d.json */; };
+		B3BC554F2665348C00531B2A /* 13n.json in Resources */ = {isa = PBXBuildFile; fileRef = B3BC553D2665348C00531B2A /* 13n.json */; };
+		B3BC55502665348C00531B2A /* 09d.json in Resources */ = {isa = PBXBuildFile; fileRef = B3BC553E2665348C00531B2A /* 09d.json */; };
+		B3BC55512665348C00531B2A /* 50n.json in Resources */ = {isa = PBXBuildFile; fileRef = B3BC553F2665348C00531B2A /* 50n.json */; };
+		B3BC55522665348C00531B2A /* 11d.json in Resources */ = {isa = PBXBuildFile; fileRef = B3BC55402665348C00531B2A /* 11d.json */; };
+		B3BC55532665348C00531B2A /* 10n.json in Resources */ = {isa = PBXBuildFile; fileRef = B3BC55412665348C00531B2A /* 10n.json */; };
+		B3BC55542665348C00531B2A /* 09n.json in Resources */ = {isa = PBXBuildFile; fileRef = B3BC55422665348C00531B2A /* 09n.json */; };
+		B3BC55552665348C00531B2A /* 13d.json in Resources */ = {isa = PBXBuildFile; fileRef = B3BC55432665348C00531B2A /* 13d.json */; };
+		B3BC55562665348C00531B2A /* 50d.json in Resources */ = {isa = PBXBuildFile; fileRef = B3BC55442665348C00531B2A /* 50d.json */; };
+		B3BC55572665348C00531B2A /* 03n.json in Resources */ = {isa = PBXBuildFile; fileRef = B3BC55452665348C00531B2A /* 03n.json */; };
+		B3BC55582665348C00531B2A /* 02d.json in Resources */ = {isa = PBXBuildFile; fileRef = B3BC55462665348C00531B2A /* 02d.json */; };
+		B3BC55592665348C00531B2A /* 01n.json in Resources */ = {isa = PBXBuildFile; fileRef = B3BC55472665348C00531B2A /* 01n.json */; };
+		B3BC555A2665348C00531B2A /* 04d.json in Resources */ = {isa = PBXBuildFile; fileRef = B3BC55482665348C00531B2A /* 04d.json */; };
+		B3BC555B2665348C00531B2A /* 03d.json in Resources */ = {isa = PBXBuildFile; fileRef = B3BC55492665348C00531B2A /* 03d.json */; };
+		B3BC555C2665348C00531B2A /* 02n.json in Resources */ = {isa = PBXBuildFile; fileRef = B3BC554A2665348C00531B2A /* 02n.json */; };
+		B3BC555D2665348C00531B2A /* 01d.json in Resources */ = {isa = PBXBuildFile; fileRef = B3BC554B2665348C00531B2A /* 01d.json */; };
+		B3BC555E2665348C00531B2A /* 04n.json in Resources */ = {isa = PBXBuildFile; fileRef = B3BC554C2665348C00531B2A /* 04n.json */; };
 		B3BD9FB426601E18001B66A6 /* CitySearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD9FB326601E18001B66A6 /* CitySearchTableViewController.swift */; };
 		B3BD9FB6266020B3001B66A6 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD9FB5266020B3001B66A6 /* City.swift */; };
-		B3D027F526613E1500D6C9A3 /* Cities.json in Resources */ = {isa = PBXBuildFile; fileRef = B3D027F426613E1500D6C9A3 /* Cities.json */; };
 		B3D027F726613E7200D6C9A3 /* CitiesListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D027F626613E7200D6C9A3 /* CitiesListManager.swift */; };
+		DBBDDE6E3C2FC59FC94E6EE8 /* Pods_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AB8194B14E5520C40E793B /* Pods_Weather.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15ED157A8095C2A7D9B53685 /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
+		A3DF7281A64EA823650FB2AC /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
+		B2AB8194B14E5520C40E793B /* Pods_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31302C72662CC9000548A29 /* CityInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityInfoTableViewCell.swift; sourceTree = "<group>"; };
 		B37BE5812652F427009F6880 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B37BE5842652F427009F6880 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -32,9 +54,27 @@
 		B37BE5922652F428009F6880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B37BE5982652FA0F009F6880 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B37BE59A2652FA64009F6880 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
+		B3AC954B26650842007770E0 /* Cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cities.json; sourceTree = "<group>"; };
+		B3BC553B2665348C00531B2A /* 11n.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 11n.json; sourceTree = "<group>"; };
+		B3BC553C2665348C00531B2A /* 10d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 10d.json; sourceTree = "<group>"; };
+		B3BC553D2665348C00531B2A /* 13n.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 13n.json; sourceTree = "<group>"; };
+		B3BC553E2665348C00531B2A /* 09d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 09d.json; sourceTree = "<group>"; };
+		B3BC553F2665348C00531B2A /* 50n.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 50n.json; sourceTree = "<group>"; };
+		B3BC55402665348C00531B2A /* 11d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 11d.json; sourceTree = "<group>"; };
+		B3BC55412665348C00531B2A /* 10n.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 10n.json; sourceTree = "<group>"; };
+		B3BC55422665348C00531B2A /* 09n.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 09n.json; sourceTree = "<group>"; };
+		B3BC55432665348C00531B2A /* 13d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 13d.json; sourceTree = "<group>"; };
+		B3BC55442665348C00531B2A /* 50d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 50d.json; sourceTree = "<group>"; };
+		B3BC55452665348C00531B2A /* 03n.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 03n.json; sourceTree = "<group>"; };
+		B3BC55462665348C00531B2A /* 02d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 02d.json; sourceTree = "<group>"; };
+		B3BC55472665348C00531B2A /* 01n.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 01n.json; sourceTree = "<group>"; };
+		B3BC55482665348C00531B2A /* 04d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 04d.json; sourceTree = "<group>"; };
+		B3BC55492665348C00531B2A /* 03d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 03d.json; sourceTree = "<group>"; };
+		B3BC554A2665348C00531B2A /* 02n.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 02n.json; sourceTree = "<group>"; };
+		B3BC554B2665348C00531B2A /* 01d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 01d.json; sourceTree = "<group>"; };
+		B3BC554C2665348C00531B2A /* 04n.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 04n.json; sourceTree = "<group>"; };
 		B3BD9FB326601E18001B66A6 /* CitySearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchTableViewController.swift; sourceTree = "<group>"; };
 		B3BD9FB5266020B3001B66A6 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
-		B3D027F426613E1500D6C9A3 /* Cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cities.json; sourceTree = "<group>"; };
 		B3D027F626613E7200D6C9A3 /* CitiesListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesListManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,16 +83,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBBDDE6E3C2FC59FC94E6EE8 /* Pods_Weather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F6B6E46A04CA79F3E1A5CAA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2AB8194B14E5520C40E793B /* Pods_Weather.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B30C9A402658F49E00246A96 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				B3D027F426613E1500D6C9A3 /* Cities.json */,
+				B3BC553A2665348C00531B2A /* Animations */,
+				B3AC954B26650842007770E0 /* Cities.json */,
 				B37BE58D2652F428009F6880 /* Assets.xcassets */,
 			);
 			path = Source;
@@ -80,6 +130,8 @@
 			children = (
 				B37BE5832652F427009F6880 /* Weather */,
 				B37BE5822652F427009F6880 /* Products */,
+				EC3371D6BD78713C539858F8 /* Pods */,
+				7F6B6E46A04CA79F3E1A5CAA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,6 +193,40 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		B3BC553A2665348C00531B2A /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				B3BC553B2665348C00531B2A /* 11n.json */,
+				B3BC553C2665348C00531B2A /* 10d.json */,
+				B3BC553D2665348C00531B2A /* 13n.json */,
+				B3BC553E2665348C00531B2A /* 09d.json */,
+				B3BC553F2665348C00531B2A /* 50n.json */,
+				B3BC55402665348C00531B2A /* 11d.json */,
+				B3BC55412665348C00531B2A /* 10n.json */,
+				B3BC55422665348C00531B2A /* 09n.json */,
+				B3BC55432665348C00531B2A /* 13d.json */,
+				B3BC55442665348C00531B2A /* 50d.json */,
+				B3BC55452665348C00531B2A /* 03n.json */,
+				B3BC55462665348C00531B2A /* 02d.json */,
+				B3BC55472665348C00531B2A /* 01n.json */,
+				B3BC55482665348C00531B2A /* 04d.json */,
+				B3BC55492665348C00531B2A /* 03d.json */,
+				B3BC554A2665348C00531B2A /* 02n.json */,
+				B3BC554B2665348C00531B2A /* 01d.json */,
+				B3BC554C2665348C00531B2A /* 04n.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		EC3371D6BD78713C539858F8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A3DF7281A64EA823650FB2AC /* Pods-Weather.debug.xcconfig */,
+				15ED157A8095C2A7D9B53685 /* Pods-Weather.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,9 +234,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B37BE5952652F428009F6880 /* Build configuration list for PBXNativeTarget "Weather" */;
 			buildPhases = (
+				A5B8A85747BBDB0859CA5B9F /* [CP] Check Pods Manifest.lock */,
 				B37BE57D2652F427009F6880 /* Sources */,
 				B37BE57E2652F427009F6880 /* Frameworks */,
 				B37BE57F2652F427009F6880 /* Resources */,
+				67314CBF024FD1656F5434E6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -198,14 +286,74 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3D027F526613E1500D6C9A3 /* Cities.json in Resources */,
+				B3BC555D2665348C00531B2A /* 01d.json in Resources */,
+				B3BC555A2665348C00531B2A /* 04d.json in Resources */,
+				B3BC55512665348C00531B2A /* 50n.json in Resources */,
+				B3AC954C26650842007770E0 /* Cities.json in Resources */,
 				B37BE5912652F428009F6880 /* LaunchScreen.storyboard in Resources */,
+				B3BC555C2665348C00531B2A /* 02n.json in Resources */,
+				B3BC555E2665348C00531B2A /* 04n.json in Resources */,
+				B3BC55542665348C00531B2A /* 09n.json in Resources */,
 				B37BE58E2652F428009F6880 /* Assets.xcassets in Resources */,
+				B3BC555B2665348C00531B2A /* 03d.json in Resources */,
+				B3BC55552665348C00531B2A /* 13d.json in Resources */,
+				B3BC55582665348C00531B2A /* 02d.json in Resources */,
+				B3BC55522665348C00531B2A /* 11d.json in Resources */,
+				B3BC554E2665348C00531B2A /* 10d.json in Resources */,
+				B3BC55532665348C00531B2A /* 10n.json in Resources */,
+				B3BC55592665348C00531B2A /* 01n.json in Resources */,
+				B3BC55572665348C00531B2A /* 03n.json in Resources */,
+				B3BC554F2665348C00531B2A /* 13n.json in Resources */,
+				B3BC55502665348C00531B2A /* 09d.json in Resources */,
 				B37BE58C2652F427009F6880 /* Main.storyboard in Resources */,
+				B3BC554D2665348C00531B2A /* 11n.json in Resources */,
+				B3BC55562665348C00531B2A /* 50d.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		67314CBF024FD1656F5434E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Weather/Pods-Weather-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Weather/Pods-Weather-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Weather/Pods-Weather-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5B8A85747BBDB0859CA5B9F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Weather-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B37BE57D2652F427009F6880 /* Sources */ = {
@@ -363,6 +511,7 @@
 		};
 		B37BE5962652F428009F6880 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3DF7281A64EA823650FB2AC /* Pods-Weather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -382,6 +531,7 @@
 		};
 		B37BE5972652F428009F6880 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15ED157A8095C2A7D9B53685 /* Pods-Weather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

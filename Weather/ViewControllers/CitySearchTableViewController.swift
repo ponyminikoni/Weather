@@ -34,20 +34,22 @@ class CitySearchTableViewController: UITableViewController {
         
         cell.cityNameLabel.text = filteredCitiesList[indexPath.row].name
         cell.countryNameLabel.text = filteredCitiesList[indexPath.row].country
-        cell.cityID = filteredCitiesList[indexPath.row].id
+        cell.lat = filteredCitiesList[indexPath.row].coord.lat
+        cell.lon = filteredCitiesList[indexPath.row].coord.lon
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = tableView.cellForRow(at: indexPath) as! CityInfoTableViewCell
-        guard let cityID = selectedCell.cityID else { return }
-        delegate.setValue(for: cityID)
+        guard let lat = selectedCell.lat else { return }
+        guard let lon = selectedCell.lon else { return }
+        delegate.setValue(lat: lat, lon: lon, cityName: selectedCell.cityNameLabel.text ?? "")
         self.dismiss(animated: true, completion: nil)
     }
 }
 
 extension CitySearchTableViewController : UISearchBarDelegate {
-
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         dismiss(animated: true, completion: nil)
     }
