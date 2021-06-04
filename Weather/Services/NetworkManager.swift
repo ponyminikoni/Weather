@@ -13,8 +13,8 @@ class NetworkManager {
     
     private init() {}
     
-    func fetchWeather(lat: Double, lon: Double, completion: @escaping (WeatherResponse?) -> ()) {
-        let stringURL = "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&appid=99778f189f239059899e125db87af0d0&units=metric"
+    func fetchWeather(lat: Double?, lon: Double?, completion: @escaping (WeatherResponse?) -> ()) {
+        let stringURL = "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat!)&lon=\(lon!)&appid=99778f189f239059899e125db87af0d0&units=metric"
         
         guard let url = URL(string: stringURL) else { completion(nil); return }
         URLSession.shared.dataTask(with: url) { (data, _, error) in

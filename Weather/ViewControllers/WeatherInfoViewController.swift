@@ -6,71 +6,59 @@
 //
 
 import UIKit
-import CoreLocation
 import Lottie
 
 protocol SearchTableViewControllerDelegate {
     func setValue(lat: Double, lon: Double, cityName: String)
 }
 
-class WeatherInfoViewController: UIViewController, CLLocationManagerDelegate {
+class WeatherInfoViewController: UIViewController {
     
     @IBOutlet var cityNameLabel: UILabel!
     @IBOutlet var tempCurrentLabel: UILabel!
-    @IBOutlet var tempMinLabel: UILabel!
-    @IBOutlet var tempMaxLabel: UILabel!
     @IBOutlet var weatherDescriptionLabel: UILabel!
+    
+    @IBOutlet var locationButton: UIButton!
     
     @IBOutlet var animationView: AnimationView!
     
-    private var cityName = "San Francisco"
-    private var lat = 37.774929
-    private var lon = -122.419418 {
+    private let locationManager = LocationManager.shared
+    private var lat: Double?
+    private var lon: Double? {
         didSet {
             showWeather()
         }
     }
     
-    //    let locationManager = CLLocationManager()
-    //    var currentLocation: CLLocation?
-    //
-    //    func setupLocation() {
-    //        locationManager.delegate = self
-    //        locationManager.requestWhenInUseAuthorization()
-    //        locationManager.startUpdatingLocation()
-    //    }
-    //
-    //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    //        if !locations.isEmpty, currentLocation == nil {
-    //            currentLocation = locations.first
-    //            locationManager.stopUpdatingLocation()
-    //            requestWeatherForLocation()
-    //        }
-    //    }
-    //
-    //    func requestWeatherForLocation() {
-    //        guard let currentLocation = currentLocation else { return }
-    //        let long = currentLocation.coordinate.longitude
-    //        let lat = currentLocation.coordinate.latitude
-    //
-    //        print(long, lat)
-    //
-    //    }
+    private var cityName: String? {
+        didSet {
+            locationButton.setImage(setupButtonImage(systemName: "location"), for: .normal)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showWeather()
-    }
-    
-    private func setpuAnimation(name: String) {
-        animationView.animation = Animation.named(name)
-        animationView.loopMode = .loop
-        animationView.play()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let citySearchTableVC = segue.destination as? CitySearchTableViewController else { return }
         citySearchTableVC.delegate = self
+    }
+    
+    @IBAction func locationButtonTapped() {
+        locationManager.setupLocationManager()
+        locationManager.didUpdatedLocation = {
+            self.lat = self.locationManager.lat
+            self.lon = self.locationManager.lon
+        }
+        locationButton.setImage(setupButtonImage(systemName: "location.fill"), for: .normal)
+        cityName = nil
+    }
+    
+    private func setupButtonImage(systemName: String) -> UIImage? {
+        let scaleConfig = UIImage.SymbolConfiguration(scale: .large)
+        let image = UIImage(systemName: systemName, withConfiguration: scaleConfig)
+        return image
     }
     
     private func showWeather() {
@@ -81,21 +69,31 @@ class WeatherInfoViewController: UIViewController, CLLocationManagerDelegate {
     
     private func checkWeatherDataState(data: WeatherResponse?) {
         guard let weather = data else { self.showAlert(); return }
-        setWeatherInfo(weather: weather)
+        setupWeatherInfoUI(weather: weather)
     }
     
-    private func setWeatherInfo(weather: WeatherResponse) {
-        var timezone = weather.timezone; replacingCharacters(text: &timezone)
+    private func setupWeatherInfoUI(weather: WeatherResponse) {
+        setupBackgroundColor(weather: weather)
         setpuAnimation(name: weather.current.weather.first?.icon ?? "")
-        self.cityNameLabel.text = cityName + ", " + timezone
+        self.cityNameLabel.text = cityName
         self.weatherDescriptionLabel.text = weather.current.weather.first?.main
         self.tempCurrentLabel.text = String(format: "%.0f", weather.current.temp)
     }
     
-    private func replacingCharacters(text: inout String) {
-        let index = text.firstIndex(of: "/") ?? text.endIndex
-        let beginning = text[..<index]
-        text = String(beginning)
+    private func setupBackgroundColor(weather: WeatherResponse) {
+        if weather.current.weather.first?.icon.last == "n" {
+            animationView.backgroundColor = #colorLiteral(red: 0.5789809823, green: 0.7002894282, blue: 1, alpha: 1)
+            view.backgroundColor = #colorLiteral(red: 0.5789809823, green: 0.7002894282, blue: 1, alpha: 1)
+        } else {
+            animationView.backgroundColor = #colorLiteral(red: 0.4620226622, green: 0.8382837176, blue: 1, alpha: 1)
+            view.backgroundColor = #colorLiteral(red: 0.4620226622, green: 0.8382837176, blue: 1, alpha: 1)
+        }
+    }
+    
+    private func setpuAnimation(name: String) {
+        animationView.animation = Animation.named(name)
+        animationView.loopMode = .loop
+        animationView.play()
     }
     
     private func showAlert() {

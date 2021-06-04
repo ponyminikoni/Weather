@@ -31,19 +31,21 @@ class CitySearchTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CityInfoTableViewCell
-        
-        cell.cityNameLabel.text = filteredCitiesList[indexPath.row].name
-        cell.countryNameLabel.text = filteredCitiesList[indexPath.row].country
-        cell.lat = filteredCitiesList[indexPath.row].coord.lat
-        cell.lon = filteredCitiesList[indexPath.row].coord.lon
+        let filtredCity = filteredCitiesList[indexPath.row]
+        cell.cityNameLabel.text = filtredCity.name
+        cell.countryNameLabel.text = filtredCity.country
+        cell.lat = filtredCity.coord.lat
+        cell.lon = filtredCity.coord.lon
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = tableView.cellForRow(at: indexPath) as! CityInfoTableViewCell
-        guard let lat = selectedCell.lat else { return }
-        guard let lon = selectedCell.lon else { return }
-        delegate.setValue(lat: lat, lon: lon, cityName: selectedCell.cityNameLabel.text ?? "")
+        guard let lat = selectedCell.lat,
+              let lon = selectedCell.lon,
+              let cityName = selectedCell.cityNameLabel.text
+        else { return }
+        delegate.setValue(lat: lat, lon: lon, cityName: cityName)
         self.dismiss(animated: true, completion: nil)
     }
 }
@@ -55,7 +57,7 @@ extension CitySearchTableViewController : UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredCitiesList = citiesList.filter { item in item.name.contains(searchText) }
+        filteredCitiesList = citiesList.filter { item in item.name.hasPrefix(searchText) }
         self.tableView.reloadData()
     }
 }
