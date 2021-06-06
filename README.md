@@ -1,5 +1,5 @@
 # Weather
-Is a project I am working on to learn UIKit (MVC)
+Simple weather app written on UIKit (MVC)
 
 ![Screenshots of the app](Demo.png)
 
