@@ -8,6 +8,6 @@ Is a project I am working on to learn UIKit (MVC)
 
 • CoreLocation
 
-• Lottie Animations
+• [Lottie Animations](https://lottiefiles.com)
 
-• OpenWeatherMap (API)
+• [OpenWeatherMap (API)](https://openweathermap.org)
