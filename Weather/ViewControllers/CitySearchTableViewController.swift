@@ -57,7 +57,7 @@ extension CitySearchTableViewController : UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredCitiesList = citiesList.filter { item in item.name.hasPrefix(searchText) }
+        filteredCitiesList = citiesList.filter { item in item.name.localizedStandardContains(searchText) }
         self.tableView.reloadData()
     }
 }

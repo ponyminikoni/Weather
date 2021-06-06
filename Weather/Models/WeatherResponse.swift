@@ -13,8 +13,8 @@ struct WeatherResponse: Decodable {
 
 struct Current: Decodable {
     let weather: [Weather]
-    let temp: Float
+    let temp, windSpeed: Double
 }
 struct Weather: Decodable {
-    let main, icon: String
+    let icon: String
 }

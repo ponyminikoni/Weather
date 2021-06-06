@@ -16,11 +16,13 @@ class WeatherInfoViewController: UIViewController {
     
     @IBOutlet var cityNameLabel: UILabel!
     @IBOutlet var tempCurrentLabel: UILabel!
-    @IBOutlet var weatherDescriptionLabel: UILabel!
+    @IBOutlet var windSpeedLabel: UILabel!
     
     @IBOutlet var locationButton: UIButton!
     
     @IBOutlet var animationView: AnimationView!
+    
+    private var cityName: String?
     
     private let locationManager = LocationManager.shared
     private var lat: Double?
@@ -30,14 +32,22 @@ class WeatherInfoViewController: UIViewController {
         }
     }
     
-    private var cityName: String? {
-        didSet {
-            locationButton.setImage(setupButtonImage(systemName: "location"), for: .normal)
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.setupLocationManager()
+        locationManager.didUpdatedLocation = { [self] in
+            if locationManager.lat != nil {
+                lat = locationManager.lat
+                lon = locationManager.lon
+                cityName = "Here and Now"
+            } else {
+                lat = 41.850029
+                lon = -87.650047
+                cityName = "Chicago"
+            }
+        }
+        setupBackgroundColor(view: view)
+        setupBackgroundColor(view: animationView)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,20 +55,15 @@ class WeatherInfoViewController: UIViewController {
         citySearchTableVC.delegate = self
     }
     
-    @IBAction func locationButtonTapped() {
-        locationManager.setupLocationManager()
-        locationManager.didUpdatedLocation = {
-            self.lat = self.locationManager.lat
-            self.lon = self.locationManager.lon
+    private func setupBackgroundColor(view: UIView) {
+        view.backgroundColor = UIColor { traitCollection in
+            switch traitCollection.userInterfaceStyle {
+            case .light:
+                return #colorLiteral(red: 0.9635435939, green: 0.9242141843, blue: 0.924749434, alpha: 1)
+            default:
+                return #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            }
         }
-        locationButton.setImage(setupButtonImage(systemName: "location.fill"), for: .normal)
-        cityName = nil
-    }
-    
-    private func setupButtonImage(systemName: String) -> UIImage? {
-        let scaleConfig = UIImage.SymbolConfiguration(scale: .large)
-        let image = UIImage(systemName: systemName, withConfiguration: scaleConfig)
-        return image
     }
     
     private func showWeather() {
@@ -73,21 +78,10 @@ class WeatherInfoViewController: UIViewController {
     }
     
     private func setupWeatherInfoUI(weather: WeatherResponse) {
-        setupBackgroundColor(weather: weather)
         setpuAnimation(name: weather.current.weather.first?.icon ?? "")
-        self.cityNameLabel.text = cityName
-        self.weatherDescriptionLabel.text = weather.current.weather.first?.main
         self.tempCurrentLabel.text = String(format: "%.0f", weather.current.temp)
-    }
-    
-    private func setupBackgroundColor(weather: WeatherResponse) {
-        if weather.current.weather.first?.icon.last == "n" {
-            animationView.backgroundColor = #colorLiteral(red: 0.5789809823, green: 0.7002894282, blue: 1, alpha: 1)
-            view.backgroundColor = #colorLiteral(red: 0.5789809823, green: 0.7002894282, blue: 1, alpha: 1)
-        } else {
-            animationView.backgroundColor = #colorLiteral(red: 0.4620226622, green: 0.8382837176, blue: 1, alpha: 1)
-            view.backgroundColor = #colorLiteral(red: 0.4620226622, green: 0.8382837176, blue: 1, alpha: 1)
-        }
+        self.windSpeedLabel.text = String(format: "%.0f", weather.current.windSpeed)
+        self.cityNameLabel.text = cityName
     }
     
     private func setpuAnimation(name: String) {

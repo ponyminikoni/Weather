@@ -28,7 +28,6 @@ class LocationManager: CLLocationManager, CLLocationManagerDelegate {
         if location.horizontalAccuracy > 0 {
             locationManager.stopUpdatingLocation()
             locationManager.delegate = nil
-            print("long = \(location.coordinate.longitude)", "lat = \(location.coordinate.latitude)")
             lat = location.coordinate.latitude
             lon = location.coordinate.longitude
             
