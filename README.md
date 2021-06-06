@@ -11,3 +11,5 @@ Simple weather app written on UIKit (MVC)
 • [Lottie Animations](https://lottiefiles.com)
 
 • [OpenWeatherMap (API)](https://openweathermap.org)
+
+• [Author](https://lottiefiles.com/user/26177) of animated icon
