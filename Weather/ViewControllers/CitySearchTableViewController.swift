@@ -11,12 +11,13 @@ class CitySearchTableViewController: UITableViewController {
     
     @IBOutlet var searchBar: UISearchBar!
     
-    private var citiesList: [City] = CitiesListManager.shared.fetchCitiesList()
+    private var citiesList: [City] = []
     private var filteredCitiesList: [City] = []
     
     var delegate: SearchTableViewControllerDelegate!
     
     override func viewDidLoad() {
+        setupCitiesList()
         searchBar.becomeFirstResponder()
     }
     
@@ -47,6 +48,12 @@ class CitySearchTableViewController: UITableViewController {
         else { return }
         delegate.setValue(lat: lat, lon: lon, cityName: cityName)
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func setupCitiesList() {
+        DispatchQueue.global().async {
+            self.citiesList = CitiesListManager.shared.fetchCitiesList()
+        }
     }
 }
 
